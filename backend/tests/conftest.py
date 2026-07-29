@@ -23,23 +23,13 @@ from app.main import app
 from app.models import Department, SystemConfig, User
 from app.services.auth_service import hash_password, hash_token
 
-# Use SQLite in-memory for testing
-TEST_DATABASE_URL = "sqlite+aiosqlite:///./test.db"
+# Use SQLite in-memory for testing (avoids file-level contention)
+TEST_DATABASE_URL = "sqlite+aiosqlite://"
 
-# Check if aiosqlite is available, fall back to a simple approach
-try:
-    import aiosqlite  # noqa: F401
-
-    test_engine = create_async_engine(
-        TEST_DATABASE_URL,
-        echo=False,
-    )
-except ImportError:
-    # Fall back to a shorter in-memory database
-    test_engine = create_async_engine(
-        "sqlite+aiosqlite://",
-        echo=False,
-    )
+test_engine = create_async_engine(
+    TEST_DATABASE_URL,
+    echo=False,
+)
 
 test_async_session_factory = async_sessionmaker(
     test_engine,

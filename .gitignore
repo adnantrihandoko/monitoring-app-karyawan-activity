@@ -11,3 +11,16 @@ build/
 coverage/
 *.tmp
 *.bak
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Test artifacts
+backend/test.db
+
+# Upload directories
+backend/uploads/screenshots/
+backend/uploads/thumbnails/
