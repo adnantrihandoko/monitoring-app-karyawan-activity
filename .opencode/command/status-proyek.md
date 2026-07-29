@@ -1,24 +1,31 @@
 ---
-description: Menampilkan status dan progress proyek saat ini
-agent: planner
-model: anthropic/claude-sonnet-4-6
+description: Menampilkan status project dari data ClickUp
+agent: clickup
 ---
 
-# Status Proyek
+# /status-proyek — Status Project
 
-Tampilkan status lengkap proyek: $ARGUMENTS
+Tampilkan status project dari ClickUp.
 
-## Komponen:
-- Project overview (nama, deskripsi, timeline)
-- Progress summary (completed, in-progress, blocked, pending)
-- Sprint status (current sprint, progress, velocity)
-- Quality metrics (code coverage, bug count)
-- Risk status (active, mitigated, new)
-- Next steps (immediate actions, upcoming milestones)
+## Sumber Data
+Baca dari ClickUp Folder: 901815722728
 
-## Output:
-Dashboard-style dengan charts dan tables.
+## Komponen
+1. **Tasks Overview**
+   - Total tasks
+   - Completed
+   - In Progress
+   - To Do
+   - Blocked
 
-## Lokasi:
-- Display di terminal
-- Simpan di: logs/STATUS_[TANGGAL].md
+2. **Sprint Status**
+   - Active sprint
+   - Progress
+   - Due date
+
+3. **Recent Activity**
+   - Task yang baru di-update
+   - Comments terbaru
+
+## Output
+Dashboard-style di terminal.

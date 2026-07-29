@@ -1,42 +1,43 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "planner",
-  "logLevel": "INFO",
-  "share": "manual",
-  "autoupdate": true,
-  "snapshot": true,
-  "instructions": ["AGENTS.md", "docs/STANDARDS.md", "docs/WORKFLOW.md"],
-  "skills": {
-    "paths": [".opencode/skills", ".opencode/workflow-skills", ".opencode/design-skills"]
-  },
-  "references": {
-    "docs": { "path": "docs", "description": "Dokumentasi proyek" },
-    "api-spec": { "path": "docs/api", "description": "Spesifikasi API" },
-    "db-schema": { "path": "docs/database", "description": "Skema database" }
-  },
   "agent": {
-    "planner": { "model": "anthropic/claude-sonnet-4-6", "mode": "primary", "description": "Perencana dan arsitek. PRD, technical requirements, arsitektur." },
-    "builder": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "Developer utama. Implementasi kode, testing, debugging." },
-    "reviewer": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "Code reviewer. Review kode, kualitas, standar." },
-    "devops": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "DevOps. CI/CD, deployment, monitoring, infrastruktur." },
-    "designer": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "UI/UX designer. Desain antarmuka, prototyping." },
-    "analyst": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "Business analyst. Analisis kebutuhan, data, riset." },
-    "tester": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "QA engineer. Testing, quality assurance." },
-    "documenter": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "Technical writer. Dokumentasi teknis, API docs." },
-    "security": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "Security analyst. Audit keamanan, vulnerability." },
-    "dba": { "model": "anthropic/claude-sonnet-4-6", "mode": "subagent", "description": "DBA. Desain skema, optimasi query, migrasi." }
+    "planner":  { "model": "opencode/big-pickle", "mode": "primary",   "description": "Perencana dan arsitek. PRD, TRD, sprint planning." },
+    "builder":  { "model": "opencode/big-pickle", "mode": "subagent",  "description": "Developer. Implementasi kode, testing." },
+    "reviewer": { "model": "opencode/big-pickle", "mode": "subagent",  "description": "Code reviewer. Review kode, quality gate." },
+    "devops":   { "model": "opencode/big-pickle", "mode": "subagent",  "description": "DevOps. Deploy, CI/CD, infra." },
+    "memory":   { "model": "opencode/big-pickle", "mode": "subagent",  "description": "Memory keeper. Persistent context, decision log." },
+    "clickup":  { "model": "opencode/big-pickle", "mode": "subagent",  "description": "ClickUp specialist. Tasks, docs, sprint via MCP." },
+    "orchestrator": { "model": "opencode/big-pickle", "mode": "primary",   "description": "Pipeline orchestrator. Koordinator PRD→TRD→Sprint→Tasks." }
   },
   "command": {},
-  "mcp": {},
-  "plugin": [],
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "."],
+      "enabled": true
+    },
+    "github": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "enabled": true,
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_TOKEN}" }
+    },
+    "clickup": {
+      "type": "local",
+      "command": ["npx", "-y", "clickup-mcp-pro"],
+      "enabled": true,
+      "env": {
+        "CLICKUP_API_TOKEN": "{env:CLICKUP_API_TOKEN}",
+        "CLICKUP_FOLDER_ID": "{env:CLICKUP_FOLDER_ID}"
+      }
+    }
+  },
   "permission": {
     "edit": "ask",
-    "bash": { "git *": "allow", "npm *": "allow", "npx *": "allow", "node *": "allow", "python *": "allow", "docker *": "allow", "ls *": "allow", "mkdir *": "allow", "*": "ask" },
-    "external_directory": { "~/projects/**": "allow", "~/.config/**": "allow", "*": "ask" }
+    "bash": { "git *": "allow", "npm *": "allow", "npx *": "allow", "node *": "allow", "ls *": "allow", "mkdir *": "allow", "*": "ask" }
   },
+  "instructions": ["AGENTS.md", "docs/CLICKUP.md"],
   "formatter": true,
-  "lsp": true,
-  "experimental": { "primary_tools": ["edit", "glob", "grep", "bash", "task"], "mcp_timeout": 30000 },
-  "tool_output": { "max_lines": 300, "max_bytes": 16384 },
-  "compaction": { "auto": true, "tail_turns": 20 }
+  "lsp": true
 }

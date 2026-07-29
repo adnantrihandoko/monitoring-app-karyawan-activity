@@ -1,0 +1,16 @@
+# =============================================================================
+# Monitoring Karyawan Activity — Docker Compose Dev Overrides
+# =============================================================================
+# Usage: docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+# =============================================================================
+
+services:
+  postgres:
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  redis:
+    ports:
+      - "6379:6379"

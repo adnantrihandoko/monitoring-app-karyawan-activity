@@ -1,46 +1,31 @@
-# AGENTS.md - Konfigurasi Agent System
+# AGENTS.md — OpenCode + ClickUp Configuration
 
-## Agents
+## Agents (7)
+| Agent | Role |
+|-------|------|
+| **planner** | Perencana dan arsitek. PRD, TRD, sprint. |
+| **builder** | Developer utama. Implementasi kode. |
+| **reviewer** | Code reviewer. Quality gate. |
+| **devops** | DevOps. Deploy, CI/CD. |
+| **memory** | Memory keeper. Persistent context. |
+| **clickup** | ClickUp specialist. Tasks, docs, sprint via MCP. |
+| **orchestrator** | Pipeline orchestrator. Koordinator PRD→TRD→Sprint→Tasks. |
 
-### Primary Agent
-- **planner**: Perencana dan arsitek utama
+## Commands (10)
+| Command | Agent | Fungsi |
+|---------|-------|--------|
+| **/buat-prd** | planner | Buat/update PRD project-level di ClickUp Docs |
+| **/buat-trd** | planner | Buat/update TRD project-level dari PRD |
+| **/buat-sprint** | planner | Buat sprint di ClickUp Folder berdasarkan timeline PRD |
+| **/jalankan-pipeline** | orchestrator | Pipeline: baca PRD+TRD → buat List → Tasks → assign ke Sprint |
+| **/test-unit** | builder | Jalankan unit test, update ClickUp |
+| **/test-integrasi** | builder | Jalankan integration test, update ClickUp |
+| **/test-e2e** | builder | Jalankan E2E test → Status: In Review |
+| **/deploy** | devops | Deploy via Docker → Status: Done |
+| **/ask** | orchestrator | Tanya codebase, ClickUp, docs, web |
+| **/status-proyek** | clickup | Status project dari ClickUp |
 
-### Sub Agents
-- **builder**: Developer utama
-- **reviewer**: Code reviewer
-- **devops**: DevOps engineer
-- **designer**: UI/UX designer
-- **analyst**: Business analyst
-- **tester**: QA engineer
-- **documenter**: Technical writer
-- **security**: Security analyst
-- **dba**: Database administrator
-
-## Workflow
-
-### Development Cycle
-1. **Planning** (Planner) - PRD, tech spec, sprint planning
-2. **Design** (Designer, Analyst) - UI/UX, business analysis
-3. **Implementation** (Builder) - Code, unit testing
-4. **Review** (Reviewer) - Code review, quality check
-5. **Testing** (Tester) - Test execution, bug reporting
-6. **Deployment** (DevOps) - CI/CD, deployment
-7. **Documentation** (Documenter) - Tech docs, API docs
-8. **Security** (Security) - Audit, hardening
-
-## Commands
-
-### Planning
-- /buat-prd, /buat-tech-spec, /sprint-planning
-
-### Design
-- /desain-database, /desain-api, /desain-uiux
-
-### Development
-- /buat-component, /review-kode, /buat-test, /optimasi
-
-### Operations
-- /deploy, /dokumentasi-api
-
-### Management
-- /status-proyek, /retrospektif, /analisis-risiko
+## ClickUp MCP
+- Server: clickup-mcp-pro (161 tools)
+- Folder ID: 901815722728
+- Auth: CLICKUP_API_TOKEN (env)

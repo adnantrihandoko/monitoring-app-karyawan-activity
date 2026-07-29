@@ -1,6 +1,6 @@
 # monitoring-karyawan-activity
 
-aplikasi desktop untuk memonitoring aktifitas komputer karyawan. hrd atau atasan atau bos bisa melihat aktifitas komputer karyawan. menampilkan presentase produktifitas, waktu kerja dan lain lain
+aplikasi desktop untuk monitoring aktifitas komputer karyawan, presentase produktifitas, waktu kerja, sedang produktif atau tidak, dan atasan bisa melihat aktifitas komputer karyawan, produktifitas karyawan
 
 ## Getting Started
 

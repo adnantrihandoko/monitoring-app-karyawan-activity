@@ -1,34 +1,19 @@
-# Setup Report
+# Setup Report — OpenCode + ClickUp v4.0.0
 
-## Generated
-Date: 2026-07-27 22:37:34
+## Project: monitoring-app
+- Date: 2026-07-29 19:13:27
 
-## Components Installed
+## Components
+- [x] opencode.json (7 agents, 3 MCP servers)
+- [x] Agents (planner, builder, reviewer, devops, memory, clickup, orchestrator)
+- [x] Commands (buat-prd, buat-trd, buat-sprint, jalankan-pipeline, test-unit, test-integrasi, test-e2e, deploy, ask, status-proyek)
+- [x] Templates
+- [x] Dokumentasi
 
-### Core
-- [x] opencode.json configuration
-- [x] Directory structure
-- [x] AGENTS.md
-
-### Agents (10)
-- [x] planner, builder, reviewer, devops, designer
-- [x] analyst, tester, documenter, security, dba
-
-### Custom Commands (15)
-- [x] /buat-prd, /buat-tech-spec, /sprint-planning
-- [x] /desain-database, /desain-api, /desain-uiux
-- [x] /review-kode, /buat-test, /deploy
-- [x] /dokumentasi-api, /status-proyek, /retrospektif
-- [x] /analisis-risiko, /buat-component, /optimasi
-
-### Skills (7)
-- [x] prd-workflow, api-design-workflow, database-design-workflow
-- [x] uiux-workflow, devops-workflow, testing-workflow
-- [x] documentation-workflow
-
-### Templates (9)
-- [x] PRD, Tech Spec, ADR, Sprint, Risk
-- [x] BRD, DB Design, API Design, UI/UX
-
-### Plugins (2)
-- [x] progress-tracker, security-scanner
+## ClickUp MCP
+- Server: clickup-mcp-pro (161 tools)
+- Auth: CLICKUP_API_TOKEN (environment variable)
+- Rate limits: Tidak ada rate limits (personal token)
+## Credentials
+- CLICKUP_API_TOKEN: ✓ terisipk_228137547_SW2Z2DWPFD32DPGZYC1LD0VDG0LVMCCF
+- CLICKUP_FOLDER_ID: 901815722728
