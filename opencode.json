@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "planner",
+  "default_agent": "general",
   "agent": {
     "planner":  { "model": "opencode/big-pickle", "mode": "primary",   "description": "Perencana dan arsitek. PRD, TRD, sprint planning." },
     "builder":  { "model": "opencode/big-pickle", "mode": "subagent",  "description": "Developer. Implementasi kode, testing." },
@@ -8,7 +8,8 @@
     "devops":   { "model": "opencode/big-pickle", "mode": "subagent",  "description": "DevOps. Deploy, CI/CD, infra." },
     "memory":   { "model": "opencode/big-pickle", "mode": "subagent",  "description": "Memory keeper. Persistent context, decision log." },
     "clickup":  { "model": "opencode/big-pickle", "mode": "subagent",  "description": "ClickUp specialist. Tasks, docs, sprint via MCP." },
-    "orchestrator": { "model": "opencode/big-pickle", "mode": "primary",   "description": "Pipeline orchestrator. Koordinator PRD→TRD→Sprint→Tasks." }
+    "orchestrator": { "model": "opencode/big-pickle", "mode": "primary",   "description": "Pipeline orchestrator. Koordinator PRD→TRD→Sprint→Tasks." },
+    "general":  { "model": "opencode/big-pickle", "mode": "primary",   "description": "Router umum. Menjawab pertanyaan, mendelegasikan ke agent specialist." }
   },
   "command": {},
   "mcp": {

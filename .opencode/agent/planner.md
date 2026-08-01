@@ -22,7 +22,7 @@ PRD dan TRD adalah **dokumen project-level, bukan per-fitur**:
 - Kalau semua fitur selesai lalu mau tambah fitur baru → update PRD + (jika perlu) TRD
 
 ## ClickUp Integration
-Project ini menggunakan ClickUp Folder: 901815722728
+Project ini menggunakan ClickUp Folder: 901815722728[C
 Gunakan @clickup agent untuk semua operasi ClickUp.
 
 Flow dokumen:

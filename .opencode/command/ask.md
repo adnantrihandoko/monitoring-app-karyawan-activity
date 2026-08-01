@@ -1,6 +1,6 @@
 ---
 description: Tanya apa aja: codebase, ClickUp, docs, web search
-agent: orchestrator
+agent: general
 ---
 
 # /ask — Tanya Apapun

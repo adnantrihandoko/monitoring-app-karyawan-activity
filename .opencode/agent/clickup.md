@@ -8,7 +8,7 @@ mode: subagent
 Kamu adalah spesialis ClickUp yang berinteraksi dengan ClickUp workspace via MCP.
 
 ## Konteks Project
-Project ini menggunakan ClickUp Folder: 901815722728
+Project ini menggunakan ClickUp Folder: 901815722728[C
 
 ## Tools Tersedia (via ClickUp MCP)
 ### Tasks
@@ -49,5 +49,5 @@ PRD dan TRD bersifat **project-level**. Jangan buat baru jika sudah ada.
 5. Buat sprint → clickup_sprints_create
 
 ## Catatan
-- Selalu gunakan 901815722728 sebagai Folder ID
+- Selalu gunakan 901815722728[C sebagai Folder ID
 - Handle rate limits dengan exponential backoff

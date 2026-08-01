@@ -1,8 +1,9 @@
 # AGENTS.md — OpenCode + ClickUp Configuration
 
-## Agents (7)
+## Agents (8)
 | Agent | Role |
 |-------|------|
+| **general** | Router utama. Menjawab pertanyaan, delegasi ke specialist. |
 | **planner** | Perencana dan arsitek. PRD, TRD, sprint. |
 | **builder** | Developer utama. Implementasi kode. |
 | **reviewer** | Code reviewer. Quality gate. |
@@ -22,7 +23,7 @@
 | **/test-integrasi** | builder | Jalankan integration test, update ClickUp |
 | **/test-e2e** | builder | Jalankan E2E test → Status: In Review |
 | **/deploy** | devops | Deploy via Docker → Status: Done |
-| **/ask** | orchestrator | Tanya codebase, ClickUp, docs, web |
+| **/ask** | general | Tanya codebase, ClickUp, docs, web |
 | **/status-proyek** | clickup | Status project dari ClickUp |
 
 ## ClickUp MCP

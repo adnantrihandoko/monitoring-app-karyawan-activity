@@ -1,0 +1,42 @@
+name: agent_app
+description: "Monitoring App Karyawan Activity - Desktop Agent (Flutter). Mencatat aktivitas aplikasi, input mouse/keyboard, screenshot periodik, idle detection, dan sinkronisasi ke backend FastAPI."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # ── HTTP & storage ─────────────────────────────────────────────
+  http: ^1.2.2
+  http_parser: ^4.0.2
+  shared_preferences: ^2.3.3
+  flutter_secure_storage: ^9.2.2
+  path_provider: ^2.1.5
+  path: ^1.9.0
+
+  # ── Local SQLite buffer (desktop uses ffi implementation) ──────
+  sqflite_common_ffi: ^2.3.4
+  sqlite3_flutter_libs: ^0.5.24
+
+  # ── Desktop window & system tray ───────────────────────────────
+  tray_manager: ^0.2.3
+  window_manager: ^0.4.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/tray_icon.png

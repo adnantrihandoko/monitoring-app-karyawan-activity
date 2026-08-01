@@ -1,7 +1,7 @@
 # ClickUp Configuration
 
-## Project: monitoring-app
-- **ClickUp Folder ID:** 901815722728
+## Project: monitoring-app-karyawan-activity
+- **ClickUp Folder ID:** 901815722728[C
 - **MCP Server:** clickup-mcp-pro
 
 ## Environment Variables
@@ -18,3 +18,14 @@ Gunakan @clickup agent untuk:
 - Membuat/mengelola tasks
 - Sprint management
 - Comments dan attachments
+
+## Status Sprint 2 — Activity Tracking Agent (`agent_app/`)
+- Implementasi kode: **selesai** (agent Flutter Linux di `agent_app/`).
+- `flutter analyze`: 0 issue.
+- `flutter test`: 77 unit test lulus (parser X11, builder payload, buffer SQLite,
+  api client/refresh, auth service, heartbeat/batch sync, controller).
+- `flutter build linux`: **terblokir** oleh missing `libayatana-appindicator3-0.1`
+  (plugin `tray_manager`); fallback `NullTrayController` sudah disiapkan.
+- FR-006 URL Tracker: belum dikerjakan (Sprint 5).
+- API contract agent ↔ backend: `docs/agent_api_contract.md`.
+

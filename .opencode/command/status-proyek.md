@@ -8,7 +8,7 @@ agent: clickup
 Tampilkan status project dari ClickUp.
 
 ## Sumber Data
-Baca dari ClickUp Folder: 901815722728
+Baca dari ClickUp Folder: 901815722728[C
 
 ## Komponen
 1. **Tasks Overview**
